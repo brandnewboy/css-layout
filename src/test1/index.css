@@ -1,0 +1,45 @@
+/*.main {*/
+/*    border: 1px solid black;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.main::after {*/
+/*    !*content: "";*!*/
+/*    !*clear: both;*!*/
+/*    !*display: block;*!*/
+/*}*/
+
+/*.box1 {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: pink;*/
+/*    margin-right: 20px;*/
+/*    float: left;*/
+/*}*/
+
+/*.box2 {*/
+/*    width: calc(100% - 100px - 20px);*/
+/*    height: 200px;*/
+/*    background-color: deepskyblue;*/
+/*    float: left;*/
+/*}*/
+
+/*========================================================*/
+/* 方法二 */
+.main {
+    border: 1px solid black;
+}
+
+
+.box1 {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    float: left;
+}
+
+.box2 {
+    height: 200px;
+    margin-left: 120px;
+    background-color: deepskyblue;
+}

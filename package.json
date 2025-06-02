@@ -1,0 +1,17 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx c-build start",
+    "gen": "node ./scripts/generateCompFolder.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@coolforme/c-build": "^1.1.1",
+    "css-loader": "^7.1.2"
+  }
+}
