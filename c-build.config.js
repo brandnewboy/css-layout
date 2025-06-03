@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
     plugins: [
         function ({ getWebpackConfig }) {
@@ -11,17 +13,35 @@ module.exports = {
                 .add('./index.js')
                 .end();
 
-                config
-                    .plugin('mini-css')
-                    .tap(args => {
-                        return [
-                            {
-                                filename: 'css/[name].css',
-                                chunkFilename: 'css/[name].css'
-                            }
-                        ]
-                    })
-                    .end()
+            config
+                .plugin('mini-css')
+                .tap(args => {
+                    return [
+                        {
+                            filename: 'css/[name].css',
+                            chunkFilename: 'css/[name].css'
+                        }
+                    ]
+                })
+                .end();
+
+            // 设置module scss 相关 loader配置
+            config
+                .module
+                .rule('sass')
+                .test(/\.scss$/)
+                .exclude
+                .add(/node_modules/)
+                .end()
+                .use('mini-css')
+                .loader(MiniCssExtractPlugin.loader)
+                .end()
+                .use('css-loader')
+                .loader('css-loader')
+                .end()
+                .use('sass-loader')
+                .loader('sass-loader')
+                .end();
 
         }
     ]

@@ -1,0 +1,46 @@
+@use '../../styles/index.scss' as Base;
+@use 'sass:map';
+@use 'sass:list';
+
+$default-dot-color: rgba(0, 0, 0, 0.12);
+$selected-dot-color: rgba(255, 255, 255, 0.63);
+
+$dots-color-map: (
+  default: $default-dot-color,
+  selected: $selected-dot-color
+);
+
+$dots: [];
+
+@for $i from 1 through 5 {
+  $dots: list.append($dots, "default");
+}
+
+$dots: list.append($dots, "selected");
+
+.main {
+  height: 200px;
+  background-color: #df7da4;
+  box-sizing: border-box;
+  padding: 10px;
+  @include Base.flex-box(row, center, flex-end, wrap);
+
+  .main__sub-box {
+    @include Base.flex-box();
+    width: 15px;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin: 2px 10px;
+  }
+
+  $index: 0;
+  @each $key in $dots {
+    $index: $index + 1;
+    .main__sub-box:nth-child(#{$index}) {
+      background-color: map.get($dots-color-map, $key);
+    }
+  }
+}
