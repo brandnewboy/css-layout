@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use 'sass:list';
+
+@mixin is-circle($yOrn: false) {
+  @if ($yOrn) {
+    border-radius: 50%;
+  }
+}
+
+$default-dot-color: pink;
+$selected-dot-color: rgb(228, 36, 113);
+
+$dots-color-map: (
+  default: $default-dot-color,
+  selected: $selected-dot-color
+);
+
+$dots: [];
+
+@for $i from 1 through 5 {
+  $dots: list.append($dots, "default");
+}
+
+$dots: list.append($dots, "selected");
+
+.main {
+  width: 100%;
+  height: 500px;
+  background-color: aquamarine;
+
+  .main__sub-box {
+    width: 20px;
+    height: 20px;
+  }
+  $index: 0;
+  @each $key in $dots {
+    $index: $index + 1;
+    .main__sub-box:nth-child(#{$index}) {
+      background-color: map.get($dots-color-map, $key);
+    }
+  }
+}
+
+

@@ -1,0 +1,97 @@
+/* 方法一 flex布局 */
+/*.main {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    border: 1px solid black;*/
+
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    flex-wrap: wrap;*/
+/*    align-content: center;*/
+/*    !*align-items: center;*!*/
+/*}*/
+
+/*.main__sub-box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: #ea3465;*/
+/*}*/
+
+/*!* 方法二 定位+margin *!*/
+/*.main {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    border: 1px solid black;*/
+
+/*    position: relative;*/
+/*}*/
+
+/*.main__sub-box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: #ea3465;*/
+
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    margin: -50px;*/
+/*}*/
+
+/*!* 方法三 定位+transform *!*/
+/*.main {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    border: 1px solid black;*/
+
+/*    position: relative;*/
+/*}*/
+
+/*.main__sub-box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: #ea3465;*/
+
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+
+/*!* 方法四 定位+margin(特殊) *** *!*/
+/*.main {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    border: 1px solid black;*/
+
+/*    position: relative;*/
+/*}*/
+
+/*.main__sub-box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: #ea3465;*/
+
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    margin: auto;*/
+/*}*/
+
+/* 方法五 flex+margin */
+.main {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    background-color: lawngreen;
+}
+
+.main__sub-box {
+    width: 100px;
+    height: 100px;
+    background-color: #ea3465;
+    margin: auto;
+}
+
+
