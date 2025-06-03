@@ -1,3 +1,4 @@
+@use '@/styles/index.scss' as Base;
 @use 'sass:map';
 @use 'sass:list';
 
@@ -25,17 +26,15 @@ $dots: list.append($dots, "selected");
 
 .main {
   width: 100%;
-  height: 500px;
+  height: 300px;
   background-color: aquamarine;
 
-  .main__sub-box {
-    width: 20px;
-    height: 20px;
-  }
   $index: 0;
   @each $key in $dots {
     $index: $index + 1;
     .main__sub-box:nth-child(#{$index}) {
+      width: 20px;
+      height: 20px;
       background-color: map.get($dots-color-map, $key);
     }
   }

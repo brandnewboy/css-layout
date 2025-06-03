@@ -81,7 +81,7 @@ try {
     const GREEN = '\x1b[32m'
     const RESET = '\x1b[31m'
     console.log(`${GREEN}文件夹 ${args[0]} 生成成功${RESET}`)
-    console.log(`${GREEN}样式表使用语言： ${args[1]}， 生成成功${RESET}`)
+    console.log(`${GREEN}样式表使用语言： ${args[1]} 生成成功${RESET}`)
 } catch (err) {
     console.log(err)
 }

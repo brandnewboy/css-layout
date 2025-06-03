@@ -1,4 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('node:path')
+const exportConfig = require('./plugins/ExportResolveConfig')
+
 
 module.exports = {
     plugins: [
@@ -43,6 +46,13 @@ module.exports = {
                 .loader('sass-loader')
                 .end();
 
-        }
+            // 配置 resolve alias 路径解析 '@' -> src
+            config
+                .resolve
+                .alias
+                .set('@', path.resolve(__dirname, './src'))
+
+        },
+        exportConfig
     ]
 }
