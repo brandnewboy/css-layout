@@ -1,5 +1,5 @@
 import './index.scss'
-import { listEl } from "../../helper";
+import { listEl } from "@/helper";
 
 document.body.innerHTML = `
     <div class="main">

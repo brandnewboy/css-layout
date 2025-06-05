@@ -1,6 +1,7 @@
 @use '@/styles/index.scss' as Base;
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:color';
 
 @mixin is-circle($yOrn: false) {
   @if ($yOrn) {
@@ -28,14 +29,17 @@ $dots: list.append($dots, "selected");
   width: 100%;
   height: 300px;
   background-color: aquamarine;
+  @include Base.flex-box(row, space-between, stretch, nowrap);
 
   $index: 0;
   @each $key in $dots {
     $index: $index + 1;
     .main__sub-box:nth-child(#{$index}) {
-      width: 20px;
-      height: 20px;
-      background-color: map.get($dots-color-map, $key);
+      flex-grow: 1;
+      //width: calc(100% / 5);
+      //height: 20px;
+      $amount: $index * 10%;
+      background-color: color.scale(map.get($dots-color-map, $key), $red: -$amount);
     }
   }
 }
