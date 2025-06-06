@@ -33,16 +33,16 @@ module.exports = function (ctx) {
         }
     }
     const res = `
-    /**
-     * 帮助webstorm或者其他编辑器识别webpack的模块解析规则
-     * 注意：该文件由插件自动生成，如非必要请勿手动修改
-     * 插件名称：ExportResolveConfig
-     * 插件路径：${path.resolve(__dirname, './ExportResolveConfig.js')}
-     */
-    module.exports = {
-        resolve: ${JSON.stringify(code)}
-    }
-    `
+/**
+* 帮助webstorm或者其他编辑器识别webpack的模块解析规则
+* 注意：该文件由插件自动生成，如非必要请勿手动修改
+* 插件名称：ExportResolveConfig
+* 插件路径：${path.resolve(__dirname, './ExportResolveConfig.js')}
+*/
+module.exports = {
+    resolve: ${JSON.stringify(code)}
+}
+`
     writeFile(
         path.resolve(process.cwd(), 'ws.resolve.config.js'),
         res

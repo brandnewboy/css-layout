@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use 'sass:list';
+
+@mixin is-circle($yOrn: false) {
+  @if ($yOrn) {
+    border-radius: 50%;
+  }
+}
+
+$theme-color: rgb(23, 114, 246);
+
+*, body, html {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #f4f6f9;
+}
+
+header {
+  background-color: white;
+  //X 轴偏移量、Y 轴偏移量、模糊半径、扩散半径和颜色
+  box-shadow: 1px 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.wrapper {
+  height: 52px;
+  max-width: 1156px;
+  min-width: 1000px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+
+  .logo {
+    cursor: pointer;
+    margin-right: 32px;
+  }
+
+  .nav-list {
+    display: flex;
+
+    li {
+      padding: 0 24px;
+      cursor: pointer;
+    }
+  }
+
+  .search-container {
+    max-width: 482px;
+    height: 34px;
+    flex-grow: 1;
+    background-color: #f8f8fa;
+    margin-right: 48px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      outline: none;
+      height: 100%;
+      flex: 1;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .header-btn {
+    .login-btn, .join-btn {
+      height: 34px;
+      width: 70px;
+      cursor: pointer;
+      margin-right: 24px;
+      border-radius: 3px;
+    }
+
+    .login-btn {
+      background-color: white;
+      color: $theme-color;
+      border: 1px solid $theme-color;
+    }
+
+    .join-btn {
+      background-color: $theme-color;
+      color: white;
+      border: none;
+    }
+  }
+
+}
+

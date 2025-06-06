@@ -59,4 +59,10 @@
 /**
  * 轮播图
  */
-import './swiper-show/index'
+// import './swiper-show/index'
+
+
+/**
+ * 仿知乎头部导航栏
+ */
+import './zhihu-head-nav/index'

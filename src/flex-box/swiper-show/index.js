@@ -1,4 +1,3 @@
-import './iconfont.scss'
 import './index.scss'
 import swiper01 from  "@/static/images/swiper01.jpg"
 import swiper02 from "@/static/images/swiper02.jpg"
@@ -131,6 +130,6 @@ const iObserver = new IntersectionObserver((entries) => {
         }
     })
 }, { threshold: 0.9 })
-maskTitles.forEach((item, index) => {
+maskTitles.forEach((item, _) => {
     iObserver.observe(item)
 })
