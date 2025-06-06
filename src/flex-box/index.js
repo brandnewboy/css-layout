@@ -17,7 +17,7 @@
 /**
  * 均分列
  */
-import './mean-col/index'
+// import './mean-col/index'
 
 /**
  * 均分列 - float
@@ -30,3 +30,33 @@ import './mean-col/index'
  * margin 在 flex布局中的表现形式
  */
 
+/**
+ * 两列等高布局
+ */
+// import './two-col-same-height/index'
+
+/**
+ * 两列、三列布局
+ */
+// import './two-three-layout/index'
+
+
+/**
+ * 两列、三列布局 float
+ */
+// import './two-three-layout-float/index'
+
+/**
+ * Sticky Footer
+ */
+// import './sticky-footer/index'
+
+/**
+ * 溢出项布局
+ */
+// import './overflow-item-layout/index'
+
+/**
+ * 轮播图
+ */
+import './swiper-show/index'
