@@ -1,0 +1,25 @@
+*, body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  height: 60px;
+  background-color: #d3dbe3;
+
+  display: flex;
+
+  align-items: center;
+
+  //overflow: scroll;
+
+  div {
+    width: 50px;
+    height: 25px;
+    background-color: rgba(234, 52, 101, 0.8);
+    margin-right: 10px;
+    text-align: center;
+
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,44 @@
+.main-two {
+  height: 300px;
+  background-color: blanchedalmond;
+
+  display: flex;
+
+
+  .left {
+    width: 100px;
+    background-color: #ea3465;
+  }
+
+  .right {
+    flex-grow: 1;
+    background-color: aquamarine;
+  }
+
+
+  margin-bottom: 10px;
+}
+
+
+.main-three {
+  height: 300px;
+  background-color: aliceblue;
+
+  display: flex;
+
+  .left {
+    width: 100px;
+    background-color: #ea3465;
+  }
+
+  .right {
+    width: 88px;
+    background-color: aquamarine;
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: blanchedalmond;
+  }
+}
+

@@ -1,0 +1,74 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:color';
+@use 'sass:math';
+
+@mixin is-circle($yOrn: false) {
+  @if ($yOrn) {
+    border-radius: 50%;
+  }
+}
+
+$default-dot-color: pink;
+$selected-dot-color: rgb(228, 36, 113);
+
+$dots-color-map: (
+  default: $default-dot-color,
+  selected: $selected-dot-color
+);
+
+$dots: [];
+
+@for $i from 1 through 5 {
+  $dots: list.append($dots, "default");
+}
+
+$dots: list.append($dots, "selected");
+
+.ref {
+  width: 100px;
+  height: 100px;
+  background-color: #ea3465;
+  float: left;
+}
+.main {
+  //width: 100%;
+  $main-width: 500px;
+  width: $main-width;
+  height: 300px;
+  background-color: aquamarine;
+  overflow: hidden;
+
+
+
+  section {
+    width: $main-width + 100px;
+    background-color: blueviolet;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .main__sub-box {
+    $main__sub-box-width: 20px;
+    width: $main__sub-box-width;
+    height: 20px;
+    border-radius: 50%;
+
+    float: left;
+    margin-right: math.div($main-width, 5);
+  }
+
+  $index: 0;
+  @each $key in $dots {
+    $index: $index + 1;
+    .main__sub-box:nth-child(#{$index}) {
+      $amount: $index * 10%;
+      background-color: color.scale(map.get($dots-color-map, $key), $red: -$amount);
+    }
+  }
+}
+

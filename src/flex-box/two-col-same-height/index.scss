@@ -1,0 +1,36 @@
+//// flex 等高布局
+//.main {
+//  width: 500px;
+//  background-color: blanchedalmond;
+//
+//  display: flex;
+//  justify-content: space-between;
+//}
+//
+//.main div {
+//  width: 100px;
+//  background-color: #df7da4;
+//}
+
+// float 等高布局
+.main {
+  width: 500px;
+  background-color: blanchedalmond;
+  overflow: hidden;
+}
+
+.main div {
+  width: 100px;
+  background-color: #df7da4;
+
+  margin-bottom: -100vh;
+  padding-bottom: 100vh;
+}
+
+.main div:nth-of-type(1) {
+  float: left;
+}
+
+.main div:nth-of-type(2) {
+  float: right;
+}
