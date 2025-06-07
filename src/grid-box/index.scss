@@ -1,33 +1,27 @@
-@use 'sass:map';
-@use 'sass:list';
+@use 'sass:color';
 
-@mixin is-circle($yOrn: false) {
-  @if ($yOrn) {
-    border-radius: 50%;
+$theme-color: #e42471;
+
+
+.main {
+  width: 300px;
+  height: 300px;
+  background-color: #d3dbe3;
+
+
+  @for $i from 1 through 9 {
+    $amount: $i * 6%;
+    div:nth-of-type(#{$i}) {
+      background-color: color.scale($color: $theme-color, $red: -$amount);
+    }
   }
 }
 
-$default-dot-color: rgba(0, 0, 0, 0.12);
-$selected-dot-color: rgba(255, 255, 255, 0.63);
-
-$dots-color-map: (
-  default: $default-dot-color,
-  selected: $selected-dot-color
-);
-
-$dots: [];
-
-@for $i from 1 through 5 {
-  $dots: list.append($dots, "default");
-}
-
-$dots: list.append($dots, "selected");
-
-
-
-@each $key in $dots {
-    $index: list.index($dots, $key);
-    .main__sub-box:nth-child(#{$index}) {
-        background-color: map.get($dots-color-map, $key);
-    }
+.main {
+  display: grid;
+  //$columns: 100px 100px 100px;
+  $columns: 1fr 2fr 1fr;
+  $rows: 100px 100px 100px;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
 }

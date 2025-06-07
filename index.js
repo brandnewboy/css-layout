@@ -10,4 +10,10 @@ import './src/styles/iconfont.css'
 /**
  * flex 布局 相关代码
  */
-import './src/flex-box/index'
+// import './src/flex-box/index'
+
+
+/**
+ * grid 布局 相关代码
+ */
+import './src/grid-box/index'

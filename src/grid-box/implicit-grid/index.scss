@@ -1,0 +1,129 @@
+.main {
+  width: 300px;
+  height: 300px;
+  background-color: skyblue;
+
+  display: inline-grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px;
+
+  /**
+   * 规定了当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的排列方式，增加的格子就是隐式网格
+   * grid-auto-flow: row; 默认值，表示新增加的盒子从行方向增加隐式网格
+   * grid-auto-flow: column; 表示新增加的盒子从列方向增加隐式网格
+   * grid-auto-flow: row dense; 表示新增加的盒子从行方向增加隐式网格，并且尽可能的填满空白
+   * grid-auto-flow: column dense; 表示新增加的盒子从列方向增加隐式网格，并且尽可能的填满空白
+   */
+  grid-auto-flow: row;
+  /**
+   * 规定当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的高度，增加的格子就是隐式网格
+   */
+  grid-auto-rows: 100px;
+
+  div {
+    background-color: pink;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+}
+
+.main2 {
+  margin-top: 10px;
+  width: 300px;
+  height: 300px;
+  background-color: skyblue;
+
+  display: inline-grid;
+  grid-template-columns: 100px;
+  grid-template-rows: 100px 100px 100px;
+
+  /**
+   * 规定了当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的排列方式，增加的格子就是隐式网格
+   * grid-auto-flow: row; 默认值，表示新增加的盒子从行方向增加隐式网格
+   * grid-auto-flow: column; 表示新增加的盒子从列方向增加隐式网格
+   * grid-auto-flow: row dense; 表示新增加的盒子从行方向增加隐式网格，并且尽可能的填满空白
+   * grid-auto-flow: column dense; 表示新增加的盒子从列方向增加隐式网格，并且尽可能的填满空白
+   */
+  grid-auto-flow: column;
+  /**
+   * 规定当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的宽度，增加的格子就是隐式网格
+   */
+  grid-auto-columns: 100px;
+
+  div {
+    background-color: pink;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+}
+
+/**
+ * 列宽自适应
+ */
+.main3 {
+  margin-top: 10px;
+  //width: 300px;
+  height: 300px;
+  background-color: skyblue;
+
+  display: inline-grid;
+  grid-template-columns: 100px;
+  grid-template-rows: 100px 100px 100px;
+
+  /**
+   * 规定了当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的排列方式，增加的格子就是隐式网格
+   * grid-auto-flow: row; 默认值，表示新增加的盒子从行方向增加隐式网格
+   * grid-auto-flow: column; 表示新增加的盒子从列方向增加隐式网格
+   * grid-auto-flow: row dense; 表示新增加的盒子从行方向增加隐式网格，并且尽可能的填满空白
+   * grid-auto-flow: column dense; 表示新增加的盒子从列方向增加隐式网格，并且尽可能的填满空白
+   */
+  grid-auto-flow: column;
+  /**
+   * 规定当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的宽度，增加的格子就是隐式网格
+   */
+  grid-auto-columns: 100px;
+
+  div {
+    background-color: pink;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+}
+
+.main4 {
+  margin-top: 10px;
+  width: 300px;
+  height: 300px;
+  background-color: skyblue;
+
+  display: inline-grid;
+  grid-template-columns: 100px;
+  grid-template-rows: 100px 100px 100px;
+
+  /**
+   * 规定了当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的排列方式，增加的格子就是隐式网格
+   * grid-auto-flow: row; 默认值，表示新增加的盒子从行方向增加隐式网格
+   * grid-auto-flow: column; 表示新增加的盒子从列方向增加隐式网格
+   * grid-auto-flow: row dense; 表示新增加的盒子从行方向增加隐式网格，并且尽可能的填满空白
+   * grid-auto-flow: column dense; 表示新增加的盒子从列方向增加隐式网格，并且尽可能的填满空白
+   */
+  grid-auto-flow: column;
+  /**
+   * 规定当容器盒子设置的网格数少于实际子盒子数量时，增加的子盒子的宽度，增加的格子就是隐式网格
+   */
+  grid-auto-columns: 100px;
+
+  div {
+    background-color: pink;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+
+  div:nth-of-type(1) {
+    /**
+     * 规定子盒子在网格中的起始行
+     * 如果在grid-auto-flow指定了'dense'，则会尽可能的填满空白
+     */
+    grid-column-start: 2;
+  }
+}

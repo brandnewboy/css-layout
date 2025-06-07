@@ -1,0 +1,92 @@
+@use 'sass:color';
+@use 'sass:math';
+
+$theme-color: rgba(234, 52, 101, 0.8);
+
+.main {
+  width: 300px;
+  height: 300px;
+  background-color: #d3dbe3;
+
+
+  @for $i from 1 through 3 {
+    $amount: $i * 20%;
+    div:nth-of-type(#{$i}) {
+      background-color: color.scale($color: $theme-color, $red: -$amount);
+    }
+  }
+}
+
+.main{
+  display: grid;
+
+  //grid-template-columns: 100px 100px 100px;
+  //grid-template-rows: 100px 100px 100px;
+  //grid-template-areas:
+  //          "a1 a1 a3"
+  //          "a1 a1 a3"
+  //          "a2 a2 a3"
+  //          ;
+
+  grid-template:
+    "a1 a1 a3" 100px
+    "a1 a1 a3" 100px
+    "a2 a2 a3" 100px
+  / 1fr 1fr 1fr;
+
+  // 过时
+  //grid-row-gap: 10px;
+  //grid-column-gap: 10px;
+  //grid-gap: 10px 10px;
+
+  // 新写法
+  //column-gap: 10px;
+  //row-gap: 10px;
+  gap: 10px 10px;
+
+
+
+  overflow: scroll;
+
+
+  $areas: (
+          1: a1,
+          2: a2,
+          3: a3
+  );
+  @each $index, $area in $areas {
+    div:nth-of-type(#{$index}) {
+      grid-area: $area;
+    }
+  }
+}
+
+/**
+ * flex中也可以使用(新)gap属性
+ */
+.main2{
+  margin-top: 20px;
+  background-color: #d3dbe3;
+
+  // 新写法
+  column-gap: 10px;
+  row-gap: 10px;
+  //gap: 10px 10px;
+
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+
+
+  div {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  @for $index from 1 through 6 {
+    div:nth-of-type(#{$index}) {
+      background-color: color.scale($color: $theme-color, $red: -($index * 10%));
+    }
+  }
+}

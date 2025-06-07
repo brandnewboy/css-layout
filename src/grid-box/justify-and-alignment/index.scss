@@ -1,0 +1,29 @@
+@use 'sass:color';
+
+$theme-color: rgb(228, 36, 113);
+.main {
+  width: 500px;
+  height: 500px;
+  background-color: skyblue;
+
+  display: grid;
+
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  justify-items: start;
+  align-items: center;
+
+  justify-content: center;
+  align-content: center;
+
+  div {
+    width: 50px;
+    height: 50px;
+  }
+
+  @for $index from 1 through 9 {
+    div:nth-of-type(#{$index}) {
+      background-color: color.scale($color: $theme-color, $red: -($index * 10%));
+    }
+  }
+}
