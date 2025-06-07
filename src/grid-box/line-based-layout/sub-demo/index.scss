@@ -1,0 +1,39 @@
+.main {
+  width: 300px;
+  height: 300px;
+  background-color: skyblue;
+
+  display: grid;
+  // 中括号可以为线条命名
+  grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4];
+  grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4];
+
+  div:nth-of-type(1) {
+    background-color: pink;
+    //grid-column-start: 2; // span 表示占比占用几个格子 占两列
+    //grid-column-end: span 2;
+
+    // 利用线段命名的方式设置子盒子的起始行和结束行
+    //grid-column-start: col3;
+    //grid-column-end: col4;
+
+    // 简写
+    //grid-column: 2 / 3;
+    //grid-row: 3 / 4;
+
+    // 缩写: 起始row / 起始col / 结束row / 结束col;
+    grid-area: 2 / 2 / 4 / 3;
+
+    // 自己针对自己在所在单元格内的对齐方式
+    width: 50px;
+    height: 50px;
+    justify-self: center;
+    align-self: center;
+
+  }
+
+  div:nth-of-type(2) {
+    background-color: #ea3465;
+  }
+
+}
