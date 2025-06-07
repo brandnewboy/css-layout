@@ -129,7 +129,7 @@ const iObserver = new IntersectionObserver((entries) => {
             entry.target.classList.remove('showed-h2')
         }
     })
-}, { threshold: 0.9 })
+}, { threshold: 0.1 })
 maskTitles.forEach((item, _) => {
     iObserver.observe(item)
 })
