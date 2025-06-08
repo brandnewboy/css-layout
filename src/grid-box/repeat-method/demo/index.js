@@ -1,10 +1,9 @@
 import './index.scss'
+import { listEl } from "@/helper";
+
 document.body.innerHTML = `
     <div class="main">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+        ${ listEl(11, index => `<div>${index}</div>`) }
     </div>
 `
 /* ====================================================================================== */

@@ -1,0 +1,12 @@
+.main {
+  background-color: skyblue;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: 100px;
+  gap: 20px 20px;
+  grid-auto-rows: 100px;
+
+  div {
+    background-color: #ea3465;
+  }
+}

@@ -1,0 +1,17 @@
+.row {
+  background-color: skyblue;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(10px, 1fr));
+  grid-template-rows: 1fr;
+
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      grid-column-start: span $i;
+      //grid-column-end: span $i;
+      background-color: pink;
+      border: 1px solid black;
+      box-sizing: border-box;
+      //height: 50px;
+    }
+  }
+}

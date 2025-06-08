@@ -10,8 +10,8 @@
 
   div:nth-of-type(1) {
     background-color: pink;
-    //grid-column-start: 2; // span 表示占比占用几个格子 占两列
-    //grid-column-end: span 2;
+    //grid-column-start: span 1; // span 表示占比占用几个格子 占两列
+    grid-column-end: span 2;
 
     // 利用线段命名的方式设置子盒子的起始行和结束行
     //grid-column-start: col3;
@@ -22,7 +22,7 @@
     //grid-row: 3 / 4;
 
     // 缩写: 起始row / 起始col / 结束row / 结束col;
-    grid-area: 2 / 2 / 4 / 3;
+    //grid-area: 2 / 2 / 4 / 3;
 
     // 自己针对自己在所在单元格内的对齐方式
     width: 50px;

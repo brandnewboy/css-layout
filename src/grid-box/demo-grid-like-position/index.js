@@ -1,10 +1,10 @@
 import './index.scss'
+import testImg from './test.jpg'
 document.body.innerHTML = `
     <div class="main">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+        <img src="${testImg}" alt="测试图片" />
+        <span>自制</span>
+        <p>数码热卖中......</p>
     </div>
 `
 /* ====================================================================================== */

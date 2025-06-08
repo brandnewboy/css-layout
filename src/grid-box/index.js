@@ -39,4 +39,21 @@
 /**
  * repeat 方法相关
  */
-import './repeat-method/index'
+// import './repeat-method/index'
+// import './repeat-method/minmax/index'
+// import './repeat-method/demo/index'
+
+/**
+ * 网格布局实现更灵活的定位
+ */
+// import './demo-grid-like-position/index'
+
+/**
+ * 栅格布局
+ */
+// import './demo-grid-page-layout/index'
+
+/**
+ * 仿小米商品展示页 多种综合布局
+ */
+import './demo-multi-permutation/index'
