@@ -5,16 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "npx c-build start",
-    "gen": "node ./scripts/generateCompFolder.js"
+    "gen": "node ./scripts/generateCompFolder.js",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
-  "keywords": ["node:20.10.0"],
+  "keywords": [
+    "node:20.10.0"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@coolforme/c-build": "^1.1.1",
     "css-loader": "^7.1.2",
     "sass": "^1.89.1",
-    "sass-loader": "^16.0.5"
+    "sass-loader": "^16.0.5",
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
     "mini-css-extract-plugin": "^2.9.2"
