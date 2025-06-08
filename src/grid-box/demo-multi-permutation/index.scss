@@ -15,7 +15,6 @@ body {
 }
 
 .main {
-  width: 65%;
   background-color: #f5f5f5;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -91,7 +90,7 @@ body {
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    .product-name {
+    .product-name, .product-price {
       padding: 0 18px;
       text-align: start;
     }
