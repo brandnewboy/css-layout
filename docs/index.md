@@ -3,9 +3,12 @@
 layout: home
 
 hero:
-  name: "My CSS&Layout cases"
-  text: "css practice case library"
+  name: "CSS&Layout cases"
+  text: "css practice case library from 张利"
   tagline: My great project tagline
+  image:
+    src: /logo.svg
+    alt: css&layout cases
   actions:
     - theme: brand
       text: Markdown Examples

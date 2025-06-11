@@ -1,6 +1,13 @@
 const fs = require('node:fs')
 const path = require('node:path')
 
+// 生成jsdoc注释
+/**
+ * 写入文件
+ * @param {string} filePath 文件路径
+ * @param {string} data 文件内容
+ * @returns {Promise<void>}
+ */
 function writeFile(filePath, data) {
     return new Promise((resolve, reject) => {
         fs.writeFile(filePath, data, err => {

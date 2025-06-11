@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My CSS&Layout cases",
+  title: "CSS&Layout cases",
   description: "css practice case library",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
