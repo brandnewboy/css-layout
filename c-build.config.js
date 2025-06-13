@@ -50,7 +50,21 @@ module.exports = {
             config
                 .resolve
                 .alias
-                .set('@', path.resolve(__dirname, './src'))
+                .set('@', path.resolve(__dirname, './src')).end();
+
+            config.plugin('html').tap(args => {
+                return [
+                    {
+                        title: 'c-build App css&layout',
+                        filename: 'index.html',
+                        template: path.resolve(process.cwd(), './public/index.html'),
+                        meta: {
+                            viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+                        },
+                        chunks: ['index']
+                    }
+                ]
+            })
 
         },
         exportConfig
