@@ -41,6 +41,12 @@ module.exports = {
                 .end()
                 .use('css-loader')
                 .loader('css-loader')
+                .options({
+                   modules: {
+                       // 正则匹配文件名以 'xxxxxxxx.module.scss' 结尾的文件
+                       auto: /\.module\.scss$/,
+                   }
+                })
                 .end()
                 .use('sass-loader')
                 .loader('sass-loader')

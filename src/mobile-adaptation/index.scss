@@ -2,17 +2,33 @@
   margin: 0;
   padding: 0;
 }
+// iphone6 viewport: 375px * 667px
+// 1rem = 100px = 100px / 3.75px = 26.666666667vw
+// 1px = 1rem / 100px = 0.01rem
+// x(px) = x * 0.01rem
+
+// window.devicePixelRatio = 2
+// 1px(物理像素) = 0.5px(css逻辑像素)
+// 1px(css逻辑像素) = 2px(物理像素)
+
+html {
+  font-size: 26.666666667vw;
+}
+
+body {
+  font-size: 0.16rem;
+}
 
 .box {
   //width: calc(375px * 2);
   //width: 375px;
-  height: 300px;
+  height: 3rem;
   background-color: pink;
 }
 
 .box2 {
-  width: 100px;
-  height: 100px;
-  margin-top: 20px;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
   background-color: skyblue;
 }
