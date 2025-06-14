@@ -1,0 +1,27 @@
+.with-rem {
+
+  .header {
+    font-size: 0.14rem;
+    height: 0.3rem;
+    box-shadow: 0.01rem 0.02rem 0.06rem rgba(0, 0, 0, 0.1);
+
+    .header-list {
+      height: 100%;
+      display: flex;
+
+      li {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .list-item-active {
+        background-color: #df7da4;
+      }
+    }
+  }
+}
+
+

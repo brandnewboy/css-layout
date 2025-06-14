@@ -22,4 +22,4 @@ import './src/styles/iconfont.css'
 /**
  * 移动端适配
  */
-import './src/mobile-adaptation'
+import '@/mobile-adaptation/quick-understand'

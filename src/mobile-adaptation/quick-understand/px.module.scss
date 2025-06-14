@@ -1,0 +1,32 @@
+.with-px {
+
+  .header {
+    font-size: 14px;
+    height: 30px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
+
+    .header-list {
+      height: 100%;
+      display: flex;
+
+      li {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .list-item-active {
+        background-color: #df7da4;
+      }
+    }
+  }
+}
+
+.test-camel-case {
+  color: red;
+}
+
+
+

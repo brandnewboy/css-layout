@@ -1,9 +1,11 @@
 *, body, html {
   margin: 0;
   padding: 0;
+
+  list-style: none;
 }
 // iphone6 viewport: 375px * 667px
-// 1rem = 100px = 100px / 3.75px = 26.666666667vw
+// 1rem = 100px = 100vw / 375px * 100 = 0.26666666667(vw/px) * 100px = 26.666666667vw
 // 1px = 1rem / 100px = 0.01rem
 // x(px) = x * 0.01rem
 
@@ -13,22 +15,16 @@
 
 html {
   font-size: 26.666666667vw;
+  //font-size: 100px;
 }
 
 body {
   font-size: 0.16rem;
+  //font-size: 16px;
 }
 
-.box {
-  //width: calc(375px * 2);
-  //width: 375px;
-  height: 3rem;
-  background-color: pink;
-}
-
-.box2 {
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.2rem;
-  background-color: skyblue;
+.divider {
+  height: 0.01rem;
+  background-color: #ccc;
+  margin: 0.2rem 0;
 }
