@@ -22,4 +22,17 @@ import './src/styles/iconfont.css'
 /**
  * 移动端适配
  */
-import '@/mobile-adaptation/quick-understand'
+import * as content from  './src/mobile-adaptation/quick-understand'
+
+// document.body.innerHTML = `
+//         <header style="height: 50px;background-color: #b0b0b0;"></header>
+//         <div id="app"></div>
+//     `
+//
+// async function loadContent() {
+//     const content = await import('./src/mobile-adaptation/quick-understand')
+//     console.log(content.default)
+//     document.getElementById('app').innerHTML = content.default()
+// }
+//
+// await loadContent()

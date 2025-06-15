@@ -1,7 +1,7 @@
 import './index.scss'
-import { listEl } from "@/helper";
+import { listEl, html } from "@/helper";
 
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <div class="main">
         ${ listEl(20, index => (`<div>${index}</div>`)) }
     </div>

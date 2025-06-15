@@ -1,4 +1,5 @@
 import './index.scss'
+import { html } from '@/helper'
 import * as remStyles from './rem.module.scss'
 import * as pxStyles from './px.module.scss'
 
@@ -16,10 +17,9 @@ import * as pxStyles from './px.module.scss'
  * 1.中划线命名不会被转化为驼峰命名(自定义模块导入导出规则)
  * 2.选择哪些样式需要导出(:export { xxx })
  */
-
 console.log('the remStyles:', remStyles)
 console.log('the pxStyles:', pxStyles)
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <div class="main">
         <section class="${remStyles.withRem}">
             <h3>with rem:</h3>

@@ -1,6 +1,6 @@
 // import './index.scss'
 import './demo.scss'
-import { listEl } from '../../helper/index';
+import { listEl, html } from '@/helper'
 // document.title = '居中一个div'
 // document.body.innerHTML = `
 //     <div class="main">
@@ -11,7 +11,7 @@ import { listEl } from '../../helper/index';
 /* ====================================================================================== */
 
 document.title = '不定项居中'
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <div class="main">
         ${ listEl(6, () => (`<div class="main__sub-box"></div>`)) }
     </div>

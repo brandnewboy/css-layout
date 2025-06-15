@@ -1,5 +1,5 @@
 import './index.scss'
-import { listEl } from "@/helper";
+import { listEl, html } from "@/helper";
 
 const context = require.context('./images', true, /\.webp$/)
 
@@ -7,7 +7,7 @@ const images = context.keys().map(key => {
     return context(key)
 })
 
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <div class="main">
     <div class="img-container-left">
         <img src="${images[0]}" alt="image">

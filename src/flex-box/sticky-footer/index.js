@@ -1,5 +1,7 @@
 import './index.scss'
-document.body.innerHTML = `
+import { html } from '@/helper'
+
+document.body.innerHTML = html`
     <div class="page">
         <header>
             <h2>这是头部</h2>

@@ -3,3 +3,5 @@ export const listEl = (count, el) => {
         return el(index)
     }).join('')
 }
+
+export const html = String.raw

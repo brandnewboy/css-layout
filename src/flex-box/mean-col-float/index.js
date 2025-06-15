@@ -1,6 +1,6 @@
 import './index.scss'
-import { listEl } from "@/helper";
-document.body.innerHTML = `
+import { listEl, html } from "@/helper";
+document.body.innerHTML = html`
     <div class="main">
     <section>
         ${ listEl(5, () => `<div class="main__sub-box"></div>`) }

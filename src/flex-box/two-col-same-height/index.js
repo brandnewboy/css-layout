@@ -1,5 +1,6 @@
 import './index.scss'
-document.body.innerHTML = `
+import { html } from '@/helper'
+document.body.innerHTML = html`
     <div class="main">
         <div>
             <p>测试文字</p>

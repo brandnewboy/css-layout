@@ -1,9 +1,10 @@
 import './index.scss'
+import { html } from '@/helper'
 import swiper01 from  "@/static/images/swiper01.jpg"
 import swiper02 from "@/static/images/swiper02.jpg"
 import swiper03 from  "@/static/images/swiper03.jpg"
 
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">

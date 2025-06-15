@@ -2,7 +2,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('node:path')
 const exportConfig = require('./plugins/ExportResolveConfig')
 
-
 module.exports = {
     plugins: [
         function ({ getWebpackConfig }) {
@@ -78,7 +77,15 @@ module.exports = {
                         chunks: ['index']
                     }
                 ]
-            })
+            }).end();
+
+            config.plugin('provide').tap(args => {
+                return [
+                    {
+                        // helper: path.resolve(__dirname, './src/helper/index.js')
+                    }
+                ]
+            }).end();
 
         },
         exportConfig

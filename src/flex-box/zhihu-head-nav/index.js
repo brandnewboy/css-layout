@@ -1,7 +1,8 @@
 import './index.scss'
 import logo from '@/static/images/zhihu-logo.png'
+import { html } from '@/helper'
 
-document.body.innerHTML = `
+document.body.innerHTML = html`
     <header>
         <div class="wrapper">
             <section class="logo">

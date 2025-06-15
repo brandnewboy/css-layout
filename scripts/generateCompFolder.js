@@ -16,7 +16,8 @@ if (!args) {
 const targetDir = path.resolve(process.cwd(), args[0])
 
 const JSTemplate = `import './index.${args[1]}'
-document.body.innerHTML = \`
+import { html } from '@/helper'
+document.body.innerHTML = html\`
     <div class="main">
         content
     </div>

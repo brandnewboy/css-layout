@@ -30,16 +30,16 @@ module.exports = function (ctx) {
     }
     const { getWebpackConfig } = ctx
     const webpackConfig = getWebpackConfig()
-    const code = webpackConfig.toConfig().resolve
+    const resolveCode = webpackConfig.toConfig().resolve
     // TODO 判断配置是否有不同，如有不同再使用新配置覆盖旧配置 这里先简单判断alias是否有不同
     if (oldConfig && oldConfig.alias && code.alias) {
         const oldAlias = oldConfig.alias
-        const newAlias = code.alias
+        const newAlias = resolveCode.alias
         if (newAlias === oldAlias) {
             return
         }
     }
-    const res = `
+    const res = String.raw`
 /**
 * 帮助webstorm或者其他编辑器识别webpack的模块解析规则
 * 注意：该文件由插件自动生成，如非必要请勿手动修改
@@ -47,7 +47,7 @@ module.exports = function (ctx) {
 * 插件路径：${path.resolve(__dirname, './ExportResolveConfig.js')}
 */
 module.exports = {
-    resolve: ${JSON.stringify(code)}
+    resolve: ${JSON.stringify(resolveCode)}
 }
 `
     writeFile(
