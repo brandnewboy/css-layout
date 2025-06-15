@@ -1,33 +1,97 @@
-@use 'sass:map';
-@use 'sass:list';
+@use '@/styles/index.scss' as Base;
 
-@mixin is-circle($yOrn: false) {
-  @if ($yOrn) {
-    border-radius: 50%;
-  }
+*, body, html {
+  margin: 0;
+  padding: 0;
 }
 
-$default-dot-color: rgba(0, 0, 0, 0.12);
-$selected-dot-color: rgba(255, 255, 255, 0.63);
-
-$dots-color-map: (
-  default: $default-dot-color,
-  selected: $selected-dot-color
-);
-
-$dots: [];
-
-@for $i from 1 through 5 {
-  $dots: list.append($dots, "default");
+ul {
+  list-style: none;
 }
 
-$dots: list.append($dots, "selected");
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 
+$main-width: 1226px;
+$main-height: 460px;
+.main {
+  width: $main-width;
+  height: $main-height;
+  @include Base.center-by-absolute;
 
+  .demo-container {
+    @include Base.full-parent;
+    display: grid;
 
-@each $key in $dots {
-    $index: list.index($dots, $key);
-    .main__sub-box:nth-child(#{$index}) {
-        background-color: map.get($dots-color-map, $key);
+    img {
+      @include Base.full-parent;
+      grid-area: 1 / 1 / 1 / 1;
     }
+
+    .menu {
+      $main-menu-width: 234px;
+      $main-menu-height: 460px;
+      $main-menu-item-height: 42px;
+      $sub-menu-width: 234px;
+      grid-area: 1 / 1 / 1 / 1;
+
+      width: $main-menu-width;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 15px;
+
+      .main-menu {
+        @include Base.full-parent;
+        color: white;
+        position: relative;
+
+        & > .main-menu-item {
+          height: $main-menu-item-height;
+          cursor: pointer;
+          //transition: .2s;
+          @include Base.flex-box(row, space-between, center, nowrap, center);
+          padding: 0 20px;
+
+          .sub-menu {
+            color: #333;
+            width: auto;
+            max-width: calc($main-width - $main-menu-width);
+            height: $main-menu-height;
+            position: absolute;
+            background-color: #fff;
+            left: $main-menu-width;
+            top: 0;
+            display: none;
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-columns: $sub-menu-width;
+            grid-auto-flow: column;
+            grid-auto-columns: $sub-menu-width;
+
+            .sub-menu-item {
+              @include Base.flex-box(row, center, center, nowrap, center);
+              padding: 0 1px;
+              & > img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+              }
+              &:hover {
+                color: #ff6700;
+              }
+            }
+          }
+
+        }
+
+        & > .main-menu-item:hover {
+          background-color: #ff6700;
+          .sub-menu {
+            display: grid;
+          }
+        }
+      }
+    }
+  }
 }

@@ -56,4 +56,9 @@
 /**
  * 仿小米商品展示页 多种综合布局
  */
-import './demo-multi-permutation/index'
+// import './demo-multi-permutation/index'
+
+/**
+ * 仿小米商城可隐藏菜单布局
+ */
+import './demo-menu-like-xiaomi'
