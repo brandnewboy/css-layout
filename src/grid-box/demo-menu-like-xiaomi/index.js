@@ -101,21 +101,26 @@ document.body.innerHTML = html`
     <div id="app">
         <div class="main">
             <div class="demo-container">
-                <img src="${BigSwiper}" alt="轮播图1">
+                <img src="${BigSwiper}" alt="swiper images">
                 <section class="menu">
                     <ul class="main-menu">
                         ${ listEl(mainMenuTitles.length, mainIndex => {
+                            const menu = mainMenuTitles[mainIndex]
+                            const subMenus = menu.subMenu
+                            if (subMenus.length > 24 || subMenus.length <= 0) {
+                                return html``
+                            }
                             return (html`
                                 <li class="main-menu-item">
-                                    <span>${mainMenuTitles[mainIndex].title}</span>
+                                    <span>${menu.title}</span>
                                     <i class="iconfont icon-zhankai"></i>
                                     
                                     <ul class="sub-menu">
-                                        ${ listEl(mainMenuTitles[mainIndex].subMenu.length, subIndex => {
-                                            const { title } = mainMenuTitles[mainIndex].subMenu[subIndex]
+                                        ${ listEl(subMenus, subIndex => {
+                                            const { title } = subMenus[subIndex]
                                             return (html`
                                                 <li class="sub-menu-item">
-                                                    <img class="prod-img" src="${ProdS}" alt="产品小图" />
+                                                    <img class="prod-img" src="${ProdS}" alt="the small image of the product" />
                                                     <span class="prod-name">${title}</span>
                                                 </li>`)
                                         }) }
