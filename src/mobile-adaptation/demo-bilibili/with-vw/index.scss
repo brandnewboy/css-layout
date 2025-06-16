@@ -1,33 +1,7 @@
-@use 'sass:map';
-@use 'sass:list';
+$brand-pink: #f69;
 
-@mixin is-circle($yOrn: false) {
-  @if ($yOrn) {
-    border-radius: 50%;
+.header {
+  .header-logo {
+    color: $brand-pink;
   }
-}
-
-$default-dot-color: rgba(0, 0, 0, 0.12);
-$selected-dot-color: rgba(255, 255, 255, 0.63);
-
-$dots-color-map: (
-  default: $default-dot-color,
-  selected: $selected-dot-color
-);
-
-$dots: [];
-
-@for $i from 1 through 5 {
-  $dots: list.append($dots, "default");
-}
-
-$dots: list.append($dots, "selected");
-
-
-
-@each $key in $dots {
-    $index: list.index($dots, $key);
-    .main__sub-box:nth-child(#{$index}) {
-        background-color: map.get($dots-color-map, $key);
-    }
 }

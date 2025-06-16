@@ -1,8 +1,39 @@
+/*@font-face {*/
+/*  font-family: "iconfont"; !* Project id 4942257 *!*/
+/*  src: url('@/static/fonts/iconfont.woff2?t=1749996270897') format('woff2'),*/
+/*       url('@/static/fonts/iconfont.woff?t=1749996270897') format('woff'),*/
+/*       url('@/static/fonts/iconfont.ttf?t=1749996270897') format('truetype');*/
+/*}*/
+
+/*.iconfont {*/
+/*  font-family: "iconfont" !important;*/
+/*  font-size: 16px;*/
+/*  font-style: normal;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+/*.icon-zhankai:before {*/
+/*  content: "\e62b";*/
+/*}*/
+
+/*.icon-sousuo:before {*/
+/*  content: "\e63b";*/
+/*}*/
+
+/*.icon-swiper-right:before {*/
+/*  content: "\e68c";*/
+/*}*/
+
+/*.icon-swiper-left:before {*/
+/*  content: "\e68d";*/
+/*}*/
+
 @font-face {
   font-family: "iconfont"; /* Project id 4942257 */
-  src: url('@/static/fonts/iconfont.woff2?t=1749996270897') format('woff2'),
-       url('@/static/fonts/iconfont.woff?t=1749996270897') format('woff'),
-       url('@/static/fonts/iconfont.ttf?t=1749996270897') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.woff2?t=1750052605011') format('woff2'),
+  url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.woff?t=1750052605011') format('woff'),
+  url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.ttf?t=1750052605011') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +42,18 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-BILIBILI:before {
+  content: "\e607";
+}
+
+.icon-bilibili:before {
+  content: "\e766";
+}
+
+.icon-sousuo1:before {
+  content: "\e60d";
 }
 
 .icon-zhankai:before {
@@ -28,4 +71,3 @@
 .icon-swiper-left:before {
   content: "\e68d";
 }
-

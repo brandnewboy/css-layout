@@ -16,13 +16,13 @@ import './src/styles/iconfont.css'
 /**
  * grid 布局 相关代码
  */
-import './src/grid-box/index'
+// import './src/grid-box/index'
 
 
 /**
  * 移动端适配
  */
-// import './src/mobile-adaptation/quick-understand'
+import './src/mobile-adaptation'
 
 // document.body.innerHTML = `
 //         <header style="height: 50px;background-color: #b0b0b0;"></header>
