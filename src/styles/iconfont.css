@@ -28,12 +28,11 @@
 /*.icon-swiper-left:before {*/
 /*  content: "\e68d";*/
 /*}*/
-
 @font-face {
   font-family: "iconfont"; /* Project id 4942257 */
-  src: url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.woff2?t=1750052605011') format('woff2'),
-  url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.woff?t=1750052605011') format('woff'),
-  url('//at.alicdn.com/t/c/font_4942257_b89sao25yri.ttf?t=1750052605011') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4942257_82gipa7nmfe.woff2?t=1750170929441') format('woff2'),
+  url('//at.alicdn.com/t/c/font_4942257_82gipa7nmfe.woff?t=1750170929441') format('woff'),
+  url('//at.alicdn.com/t/c/font_4942257_82gipa7nmfe.ttf?t=1750170929441') format('truetype');
 }
 
 .iconfont {
@@ -42,6 +41,18 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shipinbofangliang:before {
+  content: "\e606";
+}
+
+.icon-pinglunliang:before {
+  content: "\e669";
+}
+
+.icon-xiangxia:before {
+  content: "\e600";
 }
 
 .icon-BILIBILI:before {

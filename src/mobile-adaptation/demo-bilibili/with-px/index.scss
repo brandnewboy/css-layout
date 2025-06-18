@@ -1,33 +1,166 @@
-@use 'sass:map';
-@use 'sass:list';
+@use '@/styles/index.scss' as Base;
 
-@mixin is-circle($yOrn: false) {
-  @if ($yOrn) {
+*, body, html {
+  margin: 0;
+  padding: 0;
+}
+
+$brand-pink: #f69;
+$pad-small: 10px;
+
+ul {
+  list-style: none;
+}
+
+
+.header {
+  a {
+    text-decoration: none;
+  }
+
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 $pad-small;
+
+  .header-logo {
+    i {
+      color: $brand-pink;
+      font-size: 50px;
+    }
+    margin-right: auto;
+  }
+
+  .header-search {
+    i {
+      color: #c9c9c9;
+      font-size: 22px
+    }
+  }
+
+  .header-app {
+    margin-right: 2px;
+    margin-left: 20px;
+    & > a {
+      color: white;
+    }
+    background-color: $brand-pink;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .header-login{
+    margin-left: 20px;
+    font-size: 12px;
+    background-color: #e8e8e8;
+    padding: 7px;
     border-radius: 50%;
+    & > a {
+      color: $brand-pink;
+    }
   }
 }
 
-$default-dot-color: rgba(0, 0, 0, 0.12);
-$selected-dot-color: rgba(255, 255, 255, 0.63);
 
-$dots-color-map: (
-  default: $default-dot-color,
-  selected: $selected-dot-color
-);
+.nav {
+  padding: 0 $pad-small;
+  height: 40px;
+  border-bottom: 0.5px solid #f3f3f3;
+  position: relative;
 
-$dots: [];
+  .nav-list {
+    height: 100%;
+    align-items: center;
+    display: flex;
 
-@for $i from 1 through 5 {
-  $dots: list.append($dots, "default");
+    & > li {
+      width: 40px;
+      margin-right: 20px;
+      flex-shrink: 0;
+      position: relative;
+
+      &.active::after {
+        position: absolute;
+        content: "";
+        width: 44px;
+        height: 2px;
+        background-color: $brand-pink;
+        bottom: -10px;
+        left: -5px;
+      }
+
+      &.active {
+        color: $brand-pink;
+      }
+    }
+  }
+
+  .nav-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    & > i {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    @include Base.center-content-flex();
+    background-color: white;
+    width: 40px;
+    height: 100%;
+  }
 }
 
-$dots: list.append($dots, "selected");
+.main-content {
+  padding: 8px $pad-small;
 
 
+  .videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
 
-@each $key in $dots {
-    $index: list.index($dots, $key);
-    .main__sub-box:nth-child(#{$index}) {
-        background-color: map.get($dots-color-map, $key);
+    .video-item {
+      .video {
+        display: grid;
+      }
+
+      .video > img {
+        grid-area: 1/1/1/1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+
+      .video > span {
+        grid-area: 1/1/1/1;
+        align-self: end;
+        color: white;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2px;
+
+        & > span i {
+          margin-right: 5px;
+        }
+      }
+
+      & > h3 {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 2px;
+        margin-bottom: 15px;
+        & > a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+
     }
+  }
 }

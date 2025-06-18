@@ -1,7 +1,172 @@
+@use '@/styles/index.scss' as Base;
+
+*, body, html {
+  margin: 0;
+  padding: 0;
+}
+
 $brand-pink: #f69;
+$pad-small: 10px;
+
+ul {
+  list-style: none;
+}
+
 
 .header {
+  a {
+    text-decoration: none;
+  }
+
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 $pad-small;
+
   .header-logo {
-    color: $brand-pink;
+    i {
+      color: $brand-pink;
+      font-size: 50px;
+    }
+    margin-right: auto;
+  }
+
+  .header-search {
+    i {
+      color: #c9c9c9;
+      font-size: 22px
+    }
+  }
+
+  .header-app {
+    margin-right: 2px;
+    margin-left: 20px;
+    & > a {
+      color: white;
+    }
+    background-color: $brand-pink;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .header-login{
+    margin-left: 20px;
+    font-size: 12px;
+    background-color: #e8e8e8;
+    padding: 7px;
+    border-radius: 50%;
+    & > a {
+      color: $brand-pink;
+    }
+  }
+}
+
+
+.nav {
+  padding: 0 $pad-small;
+  height: 40px;
+  border-bottom: 0.5px solid #f3f3f3;
+  position: relative;
+
+  .nav-list {
+    height: 100%;
+    align-items: center;
+    display: flex;
+
+    & > li {
+      width: 40px;
+      margin-right: 20px;
+      flex-shrink: 0;
+      position: relative;
+
+      &.active::after {
+        position: absolute;
+        content: "";
+        width: 44px;
+        height: 2px;
+        background-color: $brand-pink;
+        bottom: -10px;
+        left: -5px;
+      }
+
+      &.active {
+        color: $brand-pink;
+      }
+    }
+  }
+
+  .nav-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    & > i {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    @include Base.center-content-flex();
+    background-color: white;
+    width: 40px;
+    height: 100%;
+  }
+}
+
+.main-content {
+  padding: 8px $pad-small;
+
+
+  .videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+
+    .video-item {
+      .video {
+        display: grid;
+      }
+
+      .video > img {
+        grid-area: 1/1/1/1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+
+      .video > span {
+        grid-area: 1/1/1/1;
+        align-self: end;
+        color: white;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2px;
+
+        & > span i {
+          margin-right: 5px;
+        }
+      }
+
+      & > h3 {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 2px;
+        margin-bottom: 15px;
+        & > a {
+          text-decoration: none;
+          color: black;
+          // 只显示两行，多于显示省略号
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+
+    }
   }
 }
