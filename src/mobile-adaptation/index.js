@@ -7,4 +7,4 @@
 /**
  * 仿 b 站
  */
-import './demo-bilibili'
+// import './demo-bilibili'

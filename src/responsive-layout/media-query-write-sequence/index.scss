@@ -1,0 +1,196 @@
+@use "sass:color";
+
+
+/**
+ * 编写先后优先级
+ */
+
+$primary-color: #ea3465;
+
+// max-width 尺寸从小到大
+@mixin order-max-width-up() {
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: $primary-color;
+  }
+
+  @media screen and (max-width: 200px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -10%);
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -20%);
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -30%);
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -40%);
+    }
+  }
+}
+
+// max-width 尺寸从大到小
+@mixin order-max-width-down() {
+  .box {
+    width: 350px;
+    height: 350px;
+    background-color: $primary-color;
+  }
+
+  //@media screen and (min-width: 500px) {
+  //  .box {
+  //    width: 300px;
+  //    height: 300px;
+  //    background-color: color.scale($primary-color, $red: -90%);
+  //  }
+  //}
+
+  @media screen and (max-width: 400px) {
+    .box {
+      width: 250px;
+      height: 250px;
+      background-color: color.scale($primary-color, $red: -10%);
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: color.scale($primary-color, $red: -30%);
+    }
+  }
+
+  @media screen and (max-width: 200px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -60%);
+    }
+  }
+
+}
+
+@mixin order-min-width-up-itr() {
+
+  $init-width: 0px;
+  $init-height: 0px;
+
+  .box {
+    width: $init-width + 50px;
+    height: $init-height - 50px;
+    background-color: $primary-color;
+  }
+
+  @for $i from 1 through 9 {
+    @media screen and (min-width: $init-width + ($i * 100px)) {
+      .box {
+        width: $init-width + $i * 50px;
+        height: $init-height + $i * 50px;
+        background-color: color.scale($primary-color, $red: -($i * 10%));
+      }
+    }
+  }
+
+}
+
+/**
+ * max-width "符号<= 从后往前，从大到小，向下包围"  ---> 越往后，(<=)尺寸大的的会覆盖前面的
+ * 所以要使用max-width，尺寸先写大的，后写小的，小的不会覆盖大的，才能逐个生效
+ */
+//@include order-max-width-up;
+//@include order-max-width-down;
+
+
+// min-width 尺寸从小大
+@mixin order-min-width-up() {
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: $primary-color;
+  }
+
+
+  @media screen and (min-width: 200px) {
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: color.scale($primary-color, $red: -10%);
+    }
+  }
+
+  @media screen and (min-width: 300px) {
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: color.scale($primary-color, $red: -30%);
+    }
+  }
+
+  @media screen and (min-width: 400px) {
+    .box {
+      width: 250px;
+      height: 250px;
+      background-color: color.scale($primary-color, $red: -60%);
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: color.scale($primary-color, $red: -40%);
+    }
+  }
+}
+
+// min-width 尺寸从大到小
+@mixin order-min-width-down() {
+
+  $init-width: 600px;
+  $init-height: 600px;
+
+  .box {
+    width: 600px;
+    height: 600px;
+    background-color: $primary-color;
+  }
+
+
+  @for $i from 1 through 5 {
+    @media screen and (min-width: $init-width - 100px) {
+      .box {
+        width: $init-width - 50px;
+        height: $init-height - 50px;
+        background-color: color.scale($primary-color, $red: -($i * 10%));
+      }
+    }
+  }
+
+}
+/**
+ * min-width "符号>= 从后往前，从大到小，逐级生效，反之被覆盖"  ---> 越往后，(>=)尺寸小的的会覆盖前面的
+ * 所以要使用min-width，尺寸先写小的，后写大的，才能逐个生效
+ */
+//@include order-min-width-up();
+//@include order-min-width-down();
+@include order-min-width-up-itr();

@@ -22,7 +22,7 @@ import './src/styles/iconfont.css'
 /**
  * 移动端适配
  */
-import './src/mobile-adaptation'
+// import './src/mobile-adaptation'
 
 // document.body.innerHTML = `
 //         <header style="height: 50px;background-color: #b0b0b0;"></header>
@@ -36,3 +36,9 @@ import './src/mobile-adaptation'
 // }
 //
 // await loadContent()
+
+
+/**
+ * 响应式布局
+ */
+import './src/responsive-layout'

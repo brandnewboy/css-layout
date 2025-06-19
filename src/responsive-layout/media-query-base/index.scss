@@ -1,0 +1,64 @@
+/**
+ * 媒体类型
+ */
+@media screen {
+  .box {
+    font-size: 80px;
+  }
+}
+
+@media print {
+  .box {
+    font-size: 50px;
+    color: red;
+  }
+}
+
+
+/**
+ * 媒体特性
+ */
+@media (min-width: 500px) { /* max-width: xxx */
+  .box {
+    width: 300px;
+    height: 300px;
+    background-color: #ea3465;
+  }
+}
+
+/* 竖屏  */
+@media (orientation: portrait) {
+  .box {
+    width: 300px;
+    height: 300px;
+    background-color: coral;
+  }
+}
+
+/* 横屏  */
+@media (orientation: landscape) {
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: fuchsia;
+    font-size: 14px;
+  }
+}
+
+
+/**
+ * 媒体逻辑 not、 and、 only、‘,’逗号-将多个媒体特性连接
+ */
+@media screen, print and (min-width: 500px) and (max-width: 700px) {
+ .box {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(20, 220, 7, 0.3);
+   font-size: 12px;
+   color: red;
+  }
+}
+
+/**
+ * link标签 见index.js
+ */
