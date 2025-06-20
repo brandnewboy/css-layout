@@ -1,0 +1,30 @@
+@use 'sass:map';
+
+/**
+ * Extra small < 576px
+ * Small >= 576px, -sm
+ * Medium >= 768px, -md
+ * Large >= 992px, -lg
+ * X-Large >= 1200, -xl
+ * XX-Large >= 1400px, -xxl
+ */
+
+$media-query-threshold: (
+"sm": 576px,
+"md": 768px,
+"lg": 992px,
+"xl": 1200px,
+"xxl": 1400px
+);
+
+.d-none {
+  display: none;
+}
+
+@each $key, $value in $media-query-threshold {
+  @media screen and (min-width: $value) {
+    .d-#{$key}-none {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@use 'sass:map';
+
+/**
+ * Extra small < 576px
+ * Small >= 576px, -sm
+ * Medium >= 768px, -md
+ * Large >= 992px, -lg
+ * X-Large >= 1200, -xl
+ * XX-Large >= 1400px, -xxl
+ */
+
+$media-query-threshold: (
+"sm": 576px,
+"md": 768px,
+"lg": 992px,
+"xl": 1200px,
+"xxl": 1400px
+);
+
+.d-none {
+  display: none;
+}
+
+@each $key, $value in $media-query-threshold {
+  @media screen and (min-width: $value) {
+    .d-#{$key}-none {
+      display: none;
+    }
+  }
+}
+
+.row {
+  $col-nums: 12;
+  $auto-row-height: 50px;
+  display: grid;
+  grid-template-columns: repeat($col-nums, 1fr);
+  grid-template-rows: $auto-row-height;
+  grid-auto-flow: row;
+  grid-auto-rows: $auto-row-height;
+
+  @mixin col($col-spans: 12) {
+    color: white;
+    border: 0.5px solid black;
+    background-color: #ea3465;
+    grid-column-end: span $col-spans;
+  }
+
+  & > .col {
+    @include col;
+  }
+  @each $key, $values in $media-query-threshold {
+    @media screen and (min-width: $values) {
+      @for $i from 1 through $col-nums {
+        .col-#{$key}-#{$i} {
+          @include col($i)
+        }
+      }
+    }
+  }
+
+
+
+}

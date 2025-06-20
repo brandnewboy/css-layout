@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 
 
 /**
@@ -90,6 +91,15 @@ $primary-color: #ea3465;
 
 }
 
+@function px2vw($px, $viewport-px: 375) {
+  $px-2-peer-vw: math.div(100vw, $viewport-px);
+  @return $px * $px-2-peer-vw;
+}
+
+@function px2rem($px, $viewport-px: 375) {
+  $px-2-peer-rem: math.div(100rem, $viewport-px);
+  @return $px * $px-2-peer-rem;
+}
 @mixin order-min-width-up-itr() {
 
   $init-width: 0px;
