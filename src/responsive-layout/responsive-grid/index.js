@@ -12,7 +12,7 @@ const template = parseHTML(html`
     <div id="app">
         ${
             listEl(mediaQueryThresholds, (_, item) => {
-                const classNames = `col col-${item}-3`
+                const classNames = `col-${item}-3`
                 return html`
                     <div class="row">
                         ${ listEl(4, (index, _) => {

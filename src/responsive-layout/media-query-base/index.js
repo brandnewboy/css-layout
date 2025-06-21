@@ -11,7 +11,7 @@ document.body.appendChild(template.body.firstChild)
 
 // const mediaQueryLink = document.createElement('link')
 // mediaQueryLink.rel = 'stylesheet'
-// mediaQueryLink.href = './outside-style.scss'
+// mediaQueryLink.href = 'outside-style.scss'
 // mediaQueryLink.media = '(max-width: 600px)'
 // document.head.appendChild(mediaQueryLink)
 

@@ -16,19 +16,6 @@ $media-query-threshold: (
 "xl": 1200px,
 "xxl": 1400px
 );
-
-.d-none {
-  display: none;
-}
-
-@each $key, $value in $media-query-threshold {
-  @media screen and (min-width: $value) {
-    .d-#{$key}-none {
-      display: none;
-    }
-  }
-}
-
 .row {
   $col-nums: 12;
   $auto-row-height: 50px;
@@ -45,7 +32,7 @@ $media-query-threshold: (
     grid-column-end: span $col-spans;
   }
 
-  & > .col {
+  & > [class*="col"] {
     @include col;
   }
   @each $key, $values in $media-query-threshold {
@@ -57,7 +44,5 @@ $media-query-threshold: (
       }
     }
   }
-
-
 
 }
