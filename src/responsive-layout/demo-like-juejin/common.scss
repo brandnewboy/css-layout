@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+@function px2rem($px, $font-size: 12) {
+  $px-2-peer-rem: math.div(1, $font-size);
+  @return ($px * $px-2-peer-rem) + rem;
+}

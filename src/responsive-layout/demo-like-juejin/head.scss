@@ -1,0 +1,236 @@
+@use './common.scss' as Common;
+@use './variable.scss' as *;
+@use 'sass:map';
+
+@function get-size($size) {
+  @return map.get($media-query-threshold, $size)
+}
+
+.head {
+  font-size: 1.33rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  padding: 0 Common.px2rem(30);
+
+  img {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+  .logo {
+    min-width: 29px;
+    height: 22px;
+    margin-right: Common.px2rem(12);
+    cursor: pointer;
+    .logo-img {
+      display: none;
+    }
+
+    .logo-mobile {
+      display: block;
+    }
+
+    @media screen and (min-width: get-size('md')) {
+      & .logo-img {
+        display: block;
+      }
+
+      & .logo-mobile {
+        display: none;
+      }
+    }
+  }
+
+
+  .nav {
+    margin-right: auto;
+    display: flex;
+    height: 100%;
+
+    .home-page {
+      display: flex;
+    }
+
+    & > ul {
+      display: none;
+
+      li {
+        display: none;
+      }
+    }
+
+    @mixin show-list($list) {
+      & > ul {
+        display: flex;
+        @each $i in $list {
+          li:nth-of-type(#{$i}) {
+            display: flex;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: get-size('md')) {
+      @include show-list([1, 2])
+    }
+    @media screen and (min-width: get-size('lg')) {
+      @include show-list([1, 2, 3, 4])
+    }
+    @media screen and (min-width: get-size('xl')) {
+      @include show-list([1, 2, 3, 4, 5, 6])
+    }
+    @media screen and (min-width: get-size('xxl')) {
+      @include show-list([1, 2, 3, 4, 5, 6, 7, 8])
+    }
+
+    .nav-list-item.active {
+      color: $juejin-brand-2-hover;
+    }
+
+    .nav-list-item {
+      box-sizing: border-box;
+      min-width: Common.px2rem(62);
+      cursor: pointer;
+      color: $juejin-font-2;
+      padding: 0 Common.px2rem(12);
+      height: 100%;
+      align-items: center;
+
+      position: relative;
+
+      &:hover::after {
+        content: "";
+        display: block;
+        background-color: $juejin-brand-1-normal;
+        height: Common.px2rem(2);
+        position: absolute;
+        bottom: 0;
+        left: Common.px2rem(12);
+        right: Common.px2rem(12);
+      }
+
+      &:hover {
+        color: $juejin-font-1;
+      }
+    }
+
+  }
+
+  .head-search {
+    min-width: Common.px2rem(150);
+    width: Common.px2rem(352);
+    margin-right: Common.px2rem(20);
+    height: 3rem;
+    box-sizing: border-box;
+    border: Common.px2rem(1) solid $juejin-font-4;
+    border-radius: Common.px2rem(5);
+    display: flex;
+
+    .input-box {
+      & > input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+      }
+
+      margin-left: Common.px2rem(10);
+      flex: 1;
+    }
+
+
+    .head-search-icon {
+      cursor: pointer;
+      height: 100%;
+      width: Common.px2rem(35);
+      background-color: $juejin-font-4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media screen and (min-width: map.get($media-query-threshold, 'md')) {
+      & {
+        width: Common.px2rem(235);
+      }
+    }
+    @media screen and (min-width: map.get($media-query-threshold, 'xl')) {
+      & {
+        width: Common.px2rem(168);
+      }
+    }
+    @media screen and (min-width: map.get($media-query-threshold, 'xxl')) {
+      & {
+        width: Common.px2rem(352);
+      }
+    }
+  }
+
+
+  .creator-center {
+    margin-right: Common.px2rem(20);
+    cursor: pointer;
+    background-color: $juejin-brand-1-normal;
+    color: white;
+    height: 3rem;
+    min-width: Common.px2rem(115);
+    border-radius: Common.px2rem(2);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 Common.px2rem(10);
+    font-size: 1.2rem;
+
+    @media screen and (min-width: get-size('lg')) {
+      & {
+        display: flex;
+      }
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: Common.px2rem(5);
+    }
+  }
+
+  .vip {
+    min-width: Common.px2rem(52);
+    display: none;
+    cursor: pointer;
+    color: $juejin-font-2;
+    margin-right: Common.px2rem(20);
+
+    @media screen and (min-width: get-size('sm')) {
+      display: block;
+    }
+  }
+
+  .notify {
+    cursor: pointer;
+
+    i {
+      color: $juejin-font-2;
+    }
+
+    margin-right: Common.px2rem(20);
+  }
+
+  .profile-photo {
+    cursor: pointer;
+    min-width: 3rem;
+    min-height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+}
