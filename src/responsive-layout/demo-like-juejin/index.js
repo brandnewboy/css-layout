@@ -178,6 +178,27 @@ const top10Topics = [
     {title: '新人报到', dis: '17.9km'}
 ]
 
+const sayHi = () => {
+    const msg = ['早上好！', '中午好！', '下午好！', '晚上好！']
+    const time = new Date()
+    const hour = time.getHours()
+    if (hour >= 6 && hour < 12) {
+        return msg[0]
+    }
+
+    if (hour >= 12 && hour <= 13) {
+        return msg[1]
+    }
+
+    if (hour > 13 && hour <= 18) {
+        return msg[2]
+    }
+
+    if (hour > 18 || hour < 6) {
+        return msg[3]
+    }
+}
+
 const template = parseHTML(html`
     <div class="page">
         <header class="head">
@@ -290,7 +311,7 @@ const template = parseHTML(html`
                                     <img src="${imgSrc}" alt="文章封面"/>
                                 </div>
                             </li>
-                        `
+                            `
                     })}
                 </ul>
             </div>
@@ -298,7 +319,7 @@ const template = parseHTML(html`
 
                 <div class="daily-sign-in">
                     <section class="say-hi">
-                        <h3>晚上好！</h3>
+                        <h3>${sayHi()}</h3>
                         <span>点亮在社区的每一天</span>
                     </section>
                     <button>

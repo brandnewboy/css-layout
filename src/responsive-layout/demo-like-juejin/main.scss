@@ -3,10 +3,6 @@
 @use './common.scss' as *;
 @use './variable.scss' as *;
 
-//$border-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
-//$bg-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
-//$bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
-
 .page-main {
   display: flex;
   align-items: flex-start; // 确保子元素高度不是自动拉伸，使sticky属性正常生效
