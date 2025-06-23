@@ -1,0 +1,179 @@
+@use 'sass:map';
+@use 'sass:color';
+@use './common.scss' as *;
+@use './variable.scss' as *;
+
+$border-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
+$bg-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
+$bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
+
+.page-main {
+  display: flex;
+  align-items: flex-start; // 确保子元素高度不是自动拉伸，使sticky属性正常生效
+  justify-content: center;
+  padding: 0 px2rem(20);
+
+  .main-left {
+    display: none;
+    position: sticky;
+    top: 100px;
+    background-color: white;
+    width: px2rem(180);
+    margin-right: px2rem(20);
+    padding: px2rem(10);
+    box-sizing: border-box;
+    font-size: px2rem(16);
+    color: $juejin-font-2;
+
+    .nav-left {
+      .nav-left-item {
+        padding: 0 px2rem(10);
+        width: px2rem(130);
+        height: px2rem(46);
+        line-height: px2rem(46);
+        border-radius: px2rem(5);
+        cursor: pointer;
+        font-weight: 350;
+      }
+      .nav-left-item.active {
+        color: $juejin-brand-1-normal;
+        background-color: $juejin-brand-5-light !important;
+      }
+      .nav-left-item:hover {
+        color: $juejin-brand-1-normal;
+        background-color: $bg-lighter-color;
+      }
+    }
+    @media screen and (min-width: map.get($media-query-threshold, 'xl')) {
+      & {
+        display: block;
+      }
+    }
+  }
+
+  .main-content {
+    background-color: white;
+    width: 96%;
+    margin-top: px2rem(20);
+    margin-right: px2rem(20);
+    border-radius: px2rem(5);
+    @media screen and (min-width: map.get($media-query-threshold, 'md')) {
+      width: 65%;
+    }
+    @media screen and (min-width: map.get($media-query-threshold, 'xl')) {
+      width: 50%;
+    }
+
+    .tab-panel-list {
+      height: px2rem(45);
+      display: flex;
+      border-bottom: px2rem(1) $border-light-color solid;
+      font-size: px2rem(16);
+      color: $juejin-font-2;
+
+      & .tab-panel-list-item {
+        height: 100%;
+        @include center-box-flex();
+        padding: 0 px2rem(20);
+        cursor: pointer;
+        position: relative;
+        &.active {
+          color: $juejin-brand-2-hover;
+          &::after {
+            display: block;
+            content: "";
+            height: px2rem(1.5);
+            background-color: $juejin-brand-1-normal;
+            width: px2rem(20);
+            position: absolute;
+            bottom: 0;
+          }
+        }
+        &:hover {
+          color: $juejin-brand-2-hover;
+        }
+      }
+    }
+
+    .article-list {
+      overflow: hidden;
+      .article-list-item {
+        display: flex;
+        border-bottom: 1px $border-light-color solid;
+        margin-top: px2rem(20);
+        padding: px2rem(8) px2rem(20);
+        box-sizing: border-box;
+
+        .article {
+          flex: 1;
+          margin-right: px2rem(10);
+
+          .article-title {
+            @include text-1-ellipsis();
+            font-size: px2rem(16);
+          }
+
+          .article-content {
+            line-height: px2rem(30);
+            @include text-1-ellipsis();
+          }
+
+          .article-info {
+            display: flex;
+            .base-info {
+              margin-right: auto;
+              color: $juejin-font-3;
+
+              & > .author:hover {
+                color: $juejin-brand-2-hover;
+              }
+
+              .divider {
+                color: $juejin-font-3;
+              }
+              .author, .page-views, .like-nums, .more-info, .divider {
+                cursor: pointer;
+                margin-right: px2rem(5);
+              }
+            }
+            .tag-info .tag-list {
+              display: none;
+              .tag {
+                cursor: pointer;
+                background-color: $juejin-gray-2;
+                color: $juejin-font-3;
+                margin: 0 px2rem(5);
+                padding: px2rem(1) px2rem(10);
+                border-radius: px2rem(3);
+              }
+              @media screen and (min-width: map.get($media-query-threshold, 'md')) {
+                display: flex;
+              }
+            }
+          }
+        }
+
+        .article-img {
+          flex-shrink: 0;
+          width: px2rem(108);
+          height: px2rem(72);
+          border-radius: px2rem(5);
+          overflow: hidden;
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .main-right {
+    display: none;
+    background-color: white;
+    margin-top: px2rem(20);
+    width: px2rem(260);
+    @media screen and (min-width: map.get($media-query-threshold, 'md')) {
+      display: block;
+    }
+  }
+}

@@ -4,3 +4,19 @@
   $px-2-peer-rem: math.div(1, $font-size);
   @return ($px * $px-2-peer-rem) + rem;
 }
+
+
+@mixin center-box-flex($direction: row) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-1-ellipsis () {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* 限制显示的行数 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

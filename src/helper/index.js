@@ -18,3 +18,8 @@ export const domParser = new DOMParser()
 export const parseHTML = htmlStr => {
     return domParser.parseFromString(htmlStr, 'text/html')
 }
+
+export const deepClone = source => {
+    // TODO deepClone 深拷贝
+    return source
+}
