@@ -30,9 +30,9 @@
 /*}*/
 @font-face {
   font-family: "iconfont"; /* Project id 4942257 */
-  src: url('//at.alicdn.com/t/c/font_4942257_17v40b4e0q1.woff2?t=1750597532212') format('woff2'),
-  url('//at.alicdn.com/t/c/font_4942257_17v40b4e0q1.woff?t=1750597532212') format('woff'),
-  url('//at.alicdn.com/t/c/font_4942257_17v40b4e0q1.ttf?t=1750597532212') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4942257_tq9x3rdc7r.woff2?t=1750656045180') format('woff2'),
+  url('//at.alicdn.com/t/c/font_4942257_tq9x3rdc7r.woff?t=1750656045180') format('woff'),
+  url('//at.alicdn.com/t/c/font_4942257_tq9x3rdc7r.ttf?t=1750656045180') format('truetype');
 }
 
 .iconfont {
@@ -41,6 +41,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-baojian-:before {
+  content: "\e641";
+}
+
+.icon-zuozhe:before {
+  content: "\e601";
+}
+
+.icon-huanyihuan:before {
+  content: "\e6a9";
+}
+
+.icon-wenzhang:before {
+  content: "\e6c1";
 }
 
 .icon-dianzanliang:before {

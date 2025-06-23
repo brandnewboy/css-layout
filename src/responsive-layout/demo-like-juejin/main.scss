@@ -3,9 +3,9 @@
 @use './common.scss' as *;
 @use './variable.scss' as *;
 
-$border-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
-$bg-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
-$bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
+//$border-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
+//$bg-light-color: color.adjust($juejin-font-4, $alpha: -0.7);
+//$bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
 
 .page-main {
   display: flex;
@@ -23,6 +23,7 @@ $bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
     padding: px2rem(10);
     box-sizing: border-box;
     font-size: px2rem(16);
+    border-radius: px2rem(5);
     color: $juejin-font-2;
 
     .nav-left {
@@ -100,9 +101,13 @@ $bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
       .article-list-item {
         display: flex;
         border-bottom: 1px $border-light-color solid;
-        margin-top: px2rem(20);
-        padding: px2rem(8) px2rem(20);
+        padding: px2rem(28) px2rem(20) px2rem(8) px2rem(20);
         box-sizing: border-box;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $bg-lighter-color;
+        }
 
         .article {
           flex: 1;
@@ -169,7 +174,6 @@ $bg-lighter-color: color.adjust($juejin-font-4, $alpha: -0.9);
 
   .main-right {
     display: none;
-    background-color: white;
     margin-top: px2rem(20);
     width: px2rem(260);
     @media screen and (min-width: map.get($media-query-threshold, 'md')) {
