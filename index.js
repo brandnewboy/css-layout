@@ -41,4 +41,6 @@ import './src/styles/iconfont.css'
 /**
  * 响应式布局
  */
-import './src/responsive-layout'
+// import './src/responsive-layout'
+
+import './src/demo-ground'
