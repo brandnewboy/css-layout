@@ -1,6 +1,8 @@
 import { html, renderHtml, listEl } from '@/helper'
-import * as styles from './index.i.module.scss'
 import { Waterfall } from './waterfall'
+
+/** @type{Styles} **/
+import * as styles from './index.i.module.scss'
 
 const context = require.context('@/static/waterfall-imgs', false, /\.jpg$/)
 let images = context.keys().map(id => {
@@ -36,7 +38,7 @@ const waterfall = new Waterfall({
     itemClassName: 'item',
     styles: {
         colWidth: styles.imgWidth,
-        itemGap: '10px'//styles.itemGap
+        itemGap: '10px'
     }
 })
 
