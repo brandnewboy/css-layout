@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+$item-margin: 5px;
+$img-width: 160px;
+
+#app {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .item {
+    border-radius: 5px;
+    float: left;
+    width: $img-width;
+
+    .box {
+      width: 100%;
+      padding: $item-margin;
+      box-sizing: border-box;
+      & > img {
+        // 等宽不等高
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+    .label {
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+  }
+}
+
+
+:export {
+  app: app;
+  item: item;
+  label: label;
+  box: box;
+  imgWidth: $img-width;
+  itemGap: $item-margin;
+}

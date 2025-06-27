@@ -20,5 +20,6 @@ document.body.appendChild(template)
 
 const switchBtn = document.querySelector('.switch-box')
 switchBtn.addEventListener('click', function () {
-    this.firstChild.style = 'transform: translateX(22px)'
+    let offset = this.children[0].style.transform === 'translateX(22px)' ? 'translateX(0)' : 'translateX(22px)'
+    this.children[0].style.transform = offset
 })

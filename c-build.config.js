@@ -44,7 +44,22 @@ module.exports = {
                    modules: {
                        // 正则匹配文件名以 'xxxxxxxx.module.scss' 结尾的文件
                        auto: /\.module\.scss$/,
-                       mode: 'local',
+                       mode: (resourcePath) => {
+                           // if (/pure.css$/i.test(resourcePath)) {
+                           //     return 'pure';
+                           // }
+                           //
+                           // if (/global.css$/i.test(resourcePath)) {
+                           //     return 'global';
+                           // }
+
+                           if (resourcePath.includes('.i.module.')) {
+                               return 'icss';
+                           }
+
+                           // return 'icss';
+                           return 'local';
+                       },
                        // exportGlobals: true,
                        // localIdentName: '[path][name]__[local]--[hash:base64:5]',
                        // localIdentContext: path.resolve(__dirname, 'src'),

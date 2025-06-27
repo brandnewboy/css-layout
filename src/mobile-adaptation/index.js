@@ -1,7 +1,7 @@
 /**
  * 快速了解
  */
-// import './quick-understand'
+import './quick-understand'
 
 
 /**
