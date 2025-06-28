@@ -10,7 +10,7 @@ let images = context.keys().map(id => {
     return context(id)
 })
 
-images = [...images, ...images, ...images, ...images]
+images = [...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images]
 
 
 renderHtml(html`

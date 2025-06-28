@@ -13,7 +13,7 @@ export class Waterfall {
     app = null;
 
     colNums = 0;
-    colHeights = []
+    colHeights = [];
 
     /** @type{HTMLCollection | NodeList} **/
     colElementList = null;
@@ -21,11 +21,13 @@ export class Waterfall {
     ITEM_DEFAULT_CLASS_NAME = 'wf-item__inner';
     ITEM_IMAGE_DEFAULT_CLASS_NAME = 'wf-item__inner-img';
 
-    imgSrcList = []
+    imgSrcList = [];
 
-    itemClassName = ''
+    itemClassName = '';
 
-    onload = null
+    onload = null;
+
+    lazyObserver = null;
 
     constructor({
         el = 'app',
@@ -68,6 +70,18 @@ export class Waterfall {
                 gap: ${rowGap}
             `
         })
+
+        this.lazyObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target
+                    if (this.itemClassName) {
+                        img.classList.add(this.itemClassName)
+                    }
+                    observer.unobserve(img)
+                }
+            })
+        })
     }
 
     initLayout() {
@@ -83,14 +97,17 @@ export class Waterfall {
         for (let i = 0; i < this.imgSrcList.length; i++) {
             const div = document.createElement('div')
             div.classList.add(this.ITEM_IMAGE_DEFAULT_CLASS_NAME)
-            if (this.itemClassName) {
-                div.classList.add(this.itemClassName)
-            }
+            // if (this.itemClassName) {
+            //     div.classList.add(this.itemClassName)
+            // }
             div.style.cssText = css`
                 width: 100%;
             `
             const img = this.createImg(this.imgSrcList[i])
             div.appendChild(img)
+
+            this.lazyObserver.observe(div)
+
             if (i < this.colNums) {
                 await this.decodeImgAndUpdate(i, div)
             } else {
