@@ -1,25 +1,13 @@
-import { listEl, parseHTML, html } from '@/helper'
-import './index.scss'
+var a = 8
 
-function hSwitch() {
-    return html`
-        <div class="switch-box">
-            <div class="switch-handler"></div>
-        </div>
-    `
+function foo() {
+    console.log(a)
 }
 
-const template = parseHTML(html`
-    <div>
-        <h1>Hello World</h1>
-        ${ hSwitch() }
-    </div>
-`).body.firstChild
+console.log(a)
 
-document.body.appendChild(template)
+// const foo = () => {
+//     console.log(a)
+// }
 
-const switchBtn = document.querySelector('.switch-box')
-switchBtn.addEventListener('click', function () {
-    let offset = this.children[0].style.transform === 'translateX(22px)' ? 'translateX(0)' : 'translateX(22px)'
-    this.children[0].style.transform = offset
-})
+foo()

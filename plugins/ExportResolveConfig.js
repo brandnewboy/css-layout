@@ -1,7 +1,6 @@
 const fs = require('node:fs')
 const path = require('node:path')
 
-// 生成jsdoc注释
 /**
  * 写入文件
  * @param {string} filePath 文件路径

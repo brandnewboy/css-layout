@@ -16,7 +16,7 @@ images = [...images, ...images, ...images, ...images, ...images, ...images, ...i
 renderHtml(html`
     <div>
         <div class="${styles.test2} ${styles.animated}">
-            其他渲染任务
+            这是一个其他渲染任务
         </div>
         <div id="${styles.app}"></div>
         ${
@@ -32,10 +32,10 @@ renderHtml(html`
 
 window.addEventListener('load', () => {
     const wf = new Waterfall({
-        width: '600px',
+        width: '1000px',
         el: 'app',
         imgSrcList: images,
-        colNums: 5,
+        colNums: 8,
         itemClassName: 'animated-img'
     })
     wf.initLayout()

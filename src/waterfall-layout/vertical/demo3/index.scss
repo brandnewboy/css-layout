@@ -1,0 +1,27 @@
+.app {
+  column-count: 6;
+  column-gap: 10px;
+  column-rule: 1px dashed #ccc;
+  //column-fill: auto;
+  column-fill: balance;
+  //height: 100vh;
+  // 宽度与列数同时写的时候自动选择分出来的列数最少的规则为主
+  //column-width: 100px;
+
+  h1 {
+    column-span: all;
+    text-align: center;
+  }
+
+  .item {
+    margin-top: 10px;
+    & > {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+}
