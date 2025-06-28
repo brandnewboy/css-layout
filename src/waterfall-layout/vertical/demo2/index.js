@@ -19,14 +19,13 @@ renderHtml(html`
             其他渲染任务
         </div>
         <div id="${styles.app}"></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
-        <div class="${styles.test1}"><h1>Hello World 这是其他渲染任务</h1></div>
+        ${
+            listEl(10, (index) => {
+                return html`
+                    <div class="${styles.test1}"><h1>${index + 1} - Hello World 这是其他渲染任务</h1></div>
+                `
+            })
+        }
     </div>
     
 `)
@@ -37,7 +36,7 @@ window.addEventListener('load', () => {
         el: 'app',
         imgSrcList: images,
         colNums: 5,
-        animateClassName: 'animated-img'
+        itemClassName: 'animated-img'
     })
     wf.initLayout()
 }, { once: true })

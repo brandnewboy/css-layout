@@ -23,7 +23,7 @@ export class Waterfall {
 
     imgSrcList = []
 
-    animateClassName = ''
+    itemClassName = ''
 
     onload = null
 
@@ -35,15 +35,15 @@ export class Waterfall {
         colNums,
         colGap = '10px',
         rowGap = '10px',
-        animateClassName,
+        itemClassName,
         onload
     }) {
         this.app = document.getElementById(el)
         if (!this.app) {
             throw new Error('无效的容器元素')
         }
-        if (animateClassName) {
-            this.animateClassName = animateClassName
+        if (itemClassName) {
+            this.itemClassName = itemClassName
         }
         this.app.style.cssText = css`
             width: ${width};
@@ -83,6 +83,9 @@ export class Waterfall {
         for (let i = 0; i < this.imgSrcList.length; i++) {
             const div = document.createElement('div')
             div.classList.add(this.ITEM_IMAGE_DEFAULT_CLASS_NAME)
+            if (this.itemClassName) {
+                div.classList.add(this.itemClassName)
+            }
             div.style.cssText = css`
                 width: 100%;
             `
@@ -134,9 +137,6 @@ export class Waterfall {
             object-fit: cover;
             display: block;
         `
-        if (this.animateClassName) {
-            img.classList.add(this.animateClassName)
-        }
         return img
     }
 
