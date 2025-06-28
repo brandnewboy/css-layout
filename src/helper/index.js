@@ -13,6 +13,7 @@ export const listEl = (count, el) => {
 }
 
 export const html = String.raw
+export const css = String.raw
 
 export const domParser = new DOMParser()
 export const parseHTML = htmlStr => {

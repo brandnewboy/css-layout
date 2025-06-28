@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes test-ani {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#app {
+  margin: 10px auto;
+}
+
+.test-1 {
+  color: red;
+  background-color: lightcoral;
+}
+
+.test-2 {
+  width: 200px;
+
+  img {
+    //transition: all;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.animated {
+  animation: test-ani 1s ease-out forwards;
+}
+
+
+:export {
+  test-1: test-1;
+  test-2: test-2;
+  animated: animated;
+  app: app;
+}
