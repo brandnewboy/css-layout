@@ -1,11 +1,4 @@
-import { css } from '@/helper'
-
-// const COLUMN_CSS_TEXT = css`
-//     flex: 1;
-//     display: flex;
-//     flex-direction: column;
-//     gap: ${rowGap}
-// `
+const css = String.raw
 
 export class Waterfall {
 
@@ -13,12 +6,14 @@ export class Waterfall {
     app = null;
 
     colNums = 0;
+
     colHeights = [];
 
     /** @type{HTMLCollection | NodeList} **/
     colElementList = null;
 
     ITEM_DEFAULT_CLASS_NAME = 'wf-item__inner';
+
     ITEM_IMAGE_DEFAULT_CLASS_NAME = 'wf-item__inner-img';
 
     imgSrcList = [];
@@ -41,27 +36,32 @@ export class Waterfall {
         onload
     }) {
         this.app = document.getElementById(el)
+
         if (!this.app) {
             throw new Error('无效的容器元素')
         }
-        if (itemClassName) {
-            this.itemClassName = itemClassName
-        }
+
         this.app.style.cssText = css`
             width: ${width};
             display: flex;
             gap: ${colGap}
         `
+
+        if (itemClassName) {
+            this.itemClassName = itemClassName
+        }
+
         if (!columnClassName) {
             this.colNums = colNums ? colNums : 0
         }
+
         if (!onload) {
             this.onload = onload
         }
+
         this.initColElements()
         this.colHeights = new Array(this.colNums).fill(0)
         this.imgSrcList = imgSrcList
-
         this.colElementList.forEach(el => {
             el.style.cssText = css`
                 flex: 1;
@@ -89,20 +89,12 @@ export class Waterfall {
             if (this.onload) {
                 this.onload()
             }
-            // window.alert('加载完成')
         })
     }
 
     async renderImages() {
         for (let i = 0; i < this.imgSrcList.length; i++) {
-            const div = document.createElement('div')
-            div.classList.add(this.ITEM_IMAGE_DEFAULT_CLASS_NAME)
-            // if (this.itemClassName) {
-            //     div.classList.add(this.itemClassName)
-            // }
-            div.style.cssText = css`
-                width: 100%;
-            `
+            const div = this.createImageItemContainer()
             const img = this.createImg(this.imgSrcList[i])
             div.appendChild(img)
 
@@ -125,6 +117,36 @@ export class Waterfall {
         this.colHeights[index] += boxHeight
     }
 
+    createImg(imgSrc) {
+        const img = new Image()
+        img.src = imgSrc
+        img.alt = "图片"
+        img.style.cssText = css`
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        `
+        return img
+    }
+
+    createImageItemContainer() {
+        const div = document.createElement('div')
+        div.classList.add(this.ITEM_IMAGE_DEFAULT_CLASS_NAME)
+        div.style.cssText = css`
+                width: 100%;
+            `
+        return div
+    }
+
+
+    initColElements() {
+        for (let i = 0; i < this.colNums; i++) {
+            const div = document.createElement('div')
+            div.classList.add(this.ITEM_DEFAULT_CLASS_NAME)
+            this.app.appendChild(div)
+        }
+        this.colElementList = this.app.querySelectorAll('.' + this.ITEM_DEFAULT_CLASS_NAME)
+    }
 
     findMinHeight() {
         let res = this.colHeights[0]
@@ -141,33 +163,4 @@ export class Waterfall {
         }
     }
 
-    getBoxHeight(el) {
-        return el.offsetHeight
-    }
-
-    createImg(imgSrc) {
-        const img = new Image()
-        img.src = imgSrc
-        img.alt = "图片"
-        img.style.cssText = css`
-            width: 100%;
-            object-fit: cover;
-            display: block;
-        `
-        return img
-    }
-
-
-    initColElements() {
-        for (let i = 0; i < this.colNums; i++) {
-            const div = document.createElement('div')
-            div.classList.add(this.ITEM_DEFAULT_CLASS_NAME)
-            this.app.appendChild(div)
-        }
-        this.colElementList = this.app.querySelectorAll('.' + this.ITEM_DEFAULT_CLASS_NAME)
-    }
-
-    getNumFromStyle(src, unit) {
-        return Number(src.replaceAll(unit, ''))
-    }
 }

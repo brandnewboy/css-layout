@@ -1,5 +1,6 @@
 import { html, renderHtml } from '@/helper'
 import { Waterfall } from '../waterfall'
+import './index.scss'
 
 
 const context = require.context('@/static/waterfall-imgs', false, /\.jpg$/)
@@ -22,7 +23,7 @@ window.addEventListener('load', () => {
         el: 'container',
         imgSrcList: images,
         colNums: 6,
-        animateClassName: 'animated-img'
+        itemClassName: 'animated-img'
     })
     wf.initLayout()
 }, { once: true })
