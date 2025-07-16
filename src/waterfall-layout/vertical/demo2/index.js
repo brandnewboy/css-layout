@@ -15,9 +15,15 @@ images = [...images, ...images, ...images, ...images, ...images, ...images, ...i
 
 renderHtml(html`
     <div>
-        <div class="${styles.test2} ${styles.animated}">
-            这是一个其他渲染任务
-        </div>
+        ${
+            listEl(10, (index) => {
+                return html`
+                    <div class="${styles.test2} ${styles.animated}">
+                        其他渲染 -- 任务${index + 1}
+                    </div>
+                `
+            })
+        }
         <div id="${styles.app}"></div>
         ${
             listEl(10, (index) => {
@@ -32,10 +38,10 @@ renderHtml(html`
 
 window.addEventListener('load', () => {
     const wf = new Waterfall({
-        width: '1000px',
         el: 'app',
-        imgSrcList: images,
+        width: '1000px',
         colNums: 8,
+        imgSrcList: images,
         itemClassName: 'animated-img'
     })
     wf.initLayout()

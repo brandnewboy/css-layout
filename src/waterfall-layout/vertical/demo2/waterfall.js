@@ -101,8 +101,10 @@ export class Waterfall {
             this.lazyObserver.observe(div)
 
             if (i < this.colNums) {
+                // 第一排正常放入容器
                 await this.decodeImgAndUpdate(i, div)
             } else {
+                // 后续放入高度最小的列
                 const { order } = this.findMinHeight()
                 await this.decodeImgAndUpdate(order, div)
             }
